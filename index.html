@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Devtechsoft — AI, Software & Digital Product Engineering</title>
+  <meta name="description" content="Devtechsoft is a founder-led technology studio building AI-powered applications, enterprise software, automation systems and digital products.">
+  <meta name="keywords" content="Devtechsoft, AI development, software engineering, agentic AI, generative AI, AI agents, RAG, MCP, AI security, automation, PromptImageLab">
+  <meta name="author" content="Dhanush S — Devtechsoft">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="canonical" href="https://devtechsoft.github.io/">
+
+  <meta property="og:title" content="Devtechsoft — AI, Software & Digital Product Engineering">
+  <meta property="og:description" content="Founder-led technology studio building AI applications, enterprise software, automation systems and digital products.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devtechsoft.github.io/">
+  <meta property="og:site_name" content="Devtechsoft">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Devtechsoft — AI, Software & Digital Product Engineering">
+  <meta name="twitter:description" content="Founder-led technology studio building AI applications, enterprise software, automation systems and digital products.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Devtechsoft",
+    "url": "https://devtechsoft.github.io/",
+    "description": "Founder-led technology studio building AI applications, enterprise software, automation systems and digital products.",
+    "founder": {
+      "@type": "Person",
+      "name": "Dhanush S"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --bg-soft-2: #f0f2f5;
+      --surface: #ffffff;
+      --text: #111318;
+      --text-secondary: #626a75;
+      --text-tertiary: #8a929e;
+      --border: #e5e8ec;
+      --border-strong: #d5d9df;
+      --hover: #f3f5f7;
+      --accent: #111318;
+      --accent-text: #ffffff;
+      --success: #23784f;
+      --danger: #a44141;
+      --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.04);
+      --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.03);
+      --shadow-md: 0 20px 60px rgba(16, 24, 40, 0.10), 0 5px 16px rgba(16, 24, 40, 0.05);
+      --shadow-lg: 0 35px 100px rgba(0, 0, 0, 0.18);
+      --radius-sm: 10px;
+      --radius-md: 15px;
+      --radius-lg: 21px;
+      --radius-xl: 28px;
+      --max-width: 1180px;
+      --header-height: 76px;
+      --ease: 180ms ease;
+      --ease-slow: 550ms ease;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0a0b0e;
+      --bg-soft: #111318;
+      --bg-soft-2: #171920;
+      --surface: #14161b;
+      --text: #f5f6f8;
+      --text-secondary: #a5acb6;
+      --text-tertiary: #747c88;
+      --border: #272b33;
+      --border-strong: #373c45;
+      --hover: #1a1d23;
+      --accent: #f5f6f8;
+      --accent-text: #0a0b0e;
+      --success: #55c48a;
+      --danger: #d87b7b;
+      --shadow-xs: 0 1px 2px rgba(0,0,0,.35);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.28), 0 1px 3px rgba(0,0,0,.20);
+      --shadow-md: 0 22px 65px rgba(0,0,0,.42), 0 5px 15px rgba(0,0,0,.25);
+      --shadow-lg: 0 40px 120px rgba(0,0,0,.60);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: color var(--ease), background-color var(--ease);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle at 50% -18%, rgba(0,0,0,.035), transparent 38%);
+    }
+    html[data-theme="dark"] body::before {
+      background: radial-gradient(circle at 50% -18%, rgba(255,255,255,.025), transparent 38%);
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; border: 0; background: transparent; cursor: pointer; }
+    svg { display: block; }
+    ::selection { background: var(--text); color: var(--bg); }
+
+    .container { width: min(calc(100% - 40px), var(--max-width)); margin-inline: auto; }
+    .section { padding: 115px 0; }
+    .section-small { padding: 82px 0; }
+    .anchor-target { scroll-margin-top: calc(var(--header-height) + 20px); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--text-secondary); font-size: 11px; font-weight: 800;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor;
+    }
+    .section-heading { max-width: 760px; margin-top: 20px; }
+    .section-heading h2 {
+      font-family: "DM Sans", sans-serif; font-size: clamp(38px, 5vw, 60px);
+      font-weight: 700; line-height: 1.03; letter-spacing: -.055em;
+    }
+    .section-heading p { max-width: 680px; margin-top: 19px; color: var(--text-secondary); font-size: 16px; line-height: 1.75; }
+
+    .site-header {
+      position: fixed; z-index: 1000; inset: 0 0 auto; height: var(--header-height);
+      border-bottom: 1px solid transparent; background: rgba(255,255,255,.86);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      transition: border-color var(--ease), background var(--ease);
+    }
+    html[data-theme="dark"] .site-header { background: rgba(10,11,14,.86); }
+    .site-header.scrolled { border-color: var(--border); }
+    .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 800; letter-spacing: -.035em; }
+    .brand-mark {
+      width: 32px; height: 32px; display: grid; place-items: center; position: relative; overflow: hidden;
+      border: 1.5px solid var(--text); border-radius: 9px;
+    }
+    .brand-mark::before {
+      content: ""; width: 10px; height: 10px; border: 1.5px solid var(--text);
+      border-radius: 2px; transform: rotate(45deg);
+    }
+    .desktop-nav { display: flex; align-items: center; gap: 31px; margin-left: auto; margin-right: 12px; }
+    .nav-link { color: var(--text-secondary); font-size: 12px; font-weight: 650; transition: color var(--ease); }
+    .nav-link:hover { color: var(--text); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-button, .menu-button {
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 11px; background: var(--surface);
+      transition: background var(--ease), border-color var(--ease), transform var(--ease);
+    }
+    .icon-button:hover, .menu-button:hover { background: var(--hover); border-color: var(--border-strong); }
+    .menu-button { display: none; }
+
+    .mobile-nav {
+      position: fixed; z-index: 990; inset: var(--header-height) 0 auto; display: none;
+      padding: 14px 20px 20px; border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.97); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    html[data-theme="dark"] .mobile-nav { background: rgba(10,11,14,.97); }
+    .mobile-nav.open { display: block; }
+    .mobile-nav-links { display: grid; gap: 3px; }
+    .mobile-nav-links a { padding: 13px 10px; border-radius: 9px; color: var(--text-secondary); font-size: 14px; font-weight: 600; }
+    .mobile-nav-links a:hover { background: var(--hover); color: var(--text); }
+
+    .hero { position: relative; overflow: clip; padding: 175px 0 110px; }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 72px 72px; opacity: .38;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.55) 38%, transparent 84%);
+    }
+    html[data-theme="dark"] .hero-grid { opacity: .11; }
+    .hero-content { position: relative; z-index: 1; text-align: center; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 9px; padding: 7px 11px; border: 1px solid var(--border);
+      border-radius: 999px; background: var(--surface); color: var(--text-secondary); font-size: 10px;
+      font-weight: 800; letter-spacing: .11em; text-transform: uppercase; box-shadow: var(--shadow-xs);
+    }
+    .hero-status { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px rgba(35,120,79,.12); }
+    .hero-title { max-width: 970px; margin: 28px auto 0; font-family: "DM Sans", sans-serif; font-size: clamp(53px, 8vw, 94px); font-weight: 700; line-height: .96; letter-spacing: -.065em; }
+    .hero-title-muted { color: var(--text-secondary); }
+    .hero-copy { max-width: 720px; margin: 28px auto 0; color: var(--text-secondary); font-size: clamp(15px, 2vw, 18px); line-height: 1.75; }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin-top: 34px; }
+    .button {
+      min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 0 18px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface);
+      font-size: 12px; font-weight: 750; transition: transform var(--ease), background var(--ease), border-color var(--ease);
+    }
+    .button:hover { transform: translateY(-1px); background: var(--hover); }
+    .button-primary { color: var(--accent-text); background: var(--accent); border-color: var(--accent); }
+    .button-primary:hover { background: var(--accent); border-color: var(--accent); }
+    .button[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+
+    .hero-metrics { max-width: 860px; margin: 75px auto 0; display: grid; grid-template-columns: repeat(3,1fr); overflow: hidden; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow-sm); }
+    .metric { padding: 24px; text-align: left; }
+    .metric + .metric { border-left: 1px solid var(--border); }
+    .metric strong { display: block; font-family: "DM Sans", sans-serif; font-size: 27px; line-height: 1.1; letter-spacing: -.04em; }
+    .metric span { display: block; margin-top: 6px; color: var(--text-secondary); font-size: 11px; font-weight: 600; }
+
+    .founder-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 72px; align-items: start; }
+    .founder-sidebar { position: sticky; top: 105px; }
+    .founder-card { padding: 29px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-sm); }
+    .founder-avatar { width: 74px; height: 74px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 20px; background: var(--bg-soft); font-family: "DM Sans", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.05em; }
+    .founder-name { margin-top: 23px; font-family: "DM Sans", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.045em; }
+    .founder-role { margin-top: 5px; color: var(--text-secondary); font-size: 12px; font-weight: 600; }
+    .founder-location { display: flex; align-items: center; gap: 7px; margin-top: 16px; color: var(--text-tertiary); font-size: 11px; }
+    .founder-content h2 { max-width: 750px; font-family: "DM Sans", sans-serif; font-size: clamp(36px, 5vw, 53px); line-height: 1.04; letter-spacing: -.055em; }
+    .founder-description { max-width: 735px; margin-top: 21px; color: var(--text-secondary); font-size: 16px; line-height: 1.8; }
+    .founder-points { display: grid; grid-template-columns: repeat(2,1fr); gap: 13px; margin-top: 34px; }
+    .founder-point { padding: 19px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+    .founder-point h3 { font-size: 13px; font-weight: 750; }
+    .founder-point p { margin-top: 7px; color: var(--text-secondary); font-size: 12px; line-height: 1.65; }
+
+    .capabilities-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 52px; }
+    .capability-card { min-height: 225px; padding: 27px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease); }
+    .capability-card:hover { transform: translateY(-3px); border-color: var(--border-strong); box-shadow: var(--shadow-md); }
+    .capability-icon { width: 41px; height: 41px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 11px; background: var(--bg-soft); }
+    .capability-card h3 { margin-top: 27px; font-family: "DM Sans", sans-serif; font-size: 20px; letter-spacing: -.035em; }
+    .capability-card p { margin-top: 8px; color: var(--text-secondary); font-size: 12px; line-height: 1.75; }
+
+    .platform-banner { margin-top: 45px; border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .platform-banner-inner { display: grid; grid-template-columns: 1.15fr .85fr; align-items: stretch; }
+    .platform-copy { padding: 38px; }
+    .platform-copy h3 { margin-top: 13px; font-family: "DM Sans", sans-serif; font-size: clamp(30px,4vw,48px); line-height: 1.02; letter-spacing: -.055em; }
+    .platform-copy p { max-width: 650px; margin-top: 15px; color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+    .platform-grid { display: grid; grid-template-columns: repeat(2,1fr); border-left: 1px solid var(--border); }
+    .platform-module { padding: 24px; border-bottom: 1px solid var(--border); }
+    .platform-module:nth-child(odd) { border-right: 1px solid var(--border); }
+    .platform-module:nth-last-child(-n+2) { border-bottom: 0; }
+    .platform-module-number { color: var(--text-tertiary); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+    .platform-module h4 { margin-top: 10px; font-size: 13px; }
+    .platform-module p { margin-top: 6px; color: var(--text-secondary); font-size: 11px; line-height: 1.6; }
+
+    .projects-container { margin-top: 55px; border-top: 1px solid var(--border); }
+    .project-row { display: grid; grid-template-columns: 82px 1fr auto; gap: 25px; align-items: center; padding: 31px 5px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background var(--ease), padding var(--ease); }
+    .project-row:hover, .project-row:focus-visible { padding-left: 14px; padding-right: 14px; background: var(--bg-soft); outline: none; }
+    .project-index { color: var(--text-tertiary); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+    .project-title { font-family: "DM Sans", sans-serif; font-size: 24px; font-weight: 700; line-height: 1.05; letter-spacing: -.045em; }
+    .project-description { max-width: 760px; margin-top: 7px; color: var(--text-secondary); font-size: 12px; line-height: 1.7; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag { padding: 5px 8px; border: 1px solid var(--border); border-radius: 7px; background: var(--surface); color: var(--text-secondary); font-size: 9px; font-weight: 750; }
+    .project-arrow { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 11px; color: var(--text-secondary); transition: transform var(--ease), color var(--ease), border-color var(--ease); }
+    .project-row:hover .project-arrow, .project-row:focus-visible .project-arrow { transform: translateX(3px); color: var(--text); border-color: var(--border-strong); }
+    .project-row.is-featured { background: linear-gradient(90deg, var(--bg-soft), transparent); }
+
+    .approach-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; margin-top: 54px; }
+    .approach-card { min-height: 325px; padding: 30px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+    .approach-number { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 11px; color: var(--text-secondary); font-size: 10px; font-weight: 800; }
+    .approach-card h3 { margin-top: 50px; font-family: "DM Sans", sans-serif; font-size: 26px; letter-spacing: -.045em; }
+    .approach-card > p { max-width: 540px; margin-top: 9px; color: var(--text-secondary); font-size: 13px; line-height: 1.75; }
+    .approach-items { display: grid; gap: 9px; margin-top: 25px; }
+    .approach-item { display: flex; align-items: center; gap: 9px; color: var(--text-secondary); font-size: 11px; font-weight: 600; }
+
+    .technology-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 41px; }
+    .technology-pill { padding: 10px 13px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); color: var(--text-secondary); font-size: 11px; font-weight: 650; }
+
+    .contact-card { position: relative; padding: 57px; border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(135deg, var(--bg-soft), var(--surface)); }
+    .contact-decoration-1, .contact-decoration-2 { position: absolute; border: 1px solid var(--border); border-radius: 50%; pointer-events: none; }
+    .contact-decoration-1 { width: 340px; height: 340px; top: -170px; right: -110px; }
+    .contact-decoration-2 { width: 230px; height: 230px; top: -110px; right: -50px; }
+    .contact-content { position: relative; z-index: 1; max-width: 780px; }
+    .contact-content h2 { margin-top: 15px; font-family: "DM Sans", sans-serif; font-size: clamp(40px,5vw,64px); line-height: 1; letter-spacing: -.06em; }
+    .contact-content p { max-width: 650px; margin-top: 18px; color: var(--text-secondary); font-size: 15px; line-height: 1.75; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 29px; }
+
+    .footer { padding: 37px 0 47px; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .footer-copy { color: var(--text-tertiary); font-size: 10px; }
+    .footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .footer-link { color: var(--text-secondary); font-size: 10px; font-weight: 650; }
+    .footer-link:hover { color: var(--text); }
+
+    .modal { position: fixed; z-index: 2000; inset: 0; padding: 20px; display: flex; align-items: center; justify-content: center; background: rgba(4,5,7,.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 200ms ease, visibility 200ms ease; }
+    .modal.active { opacity: 1; visibility: visible; pointer-events: auto; }
+    .modal-dialog { width: min(980px,100%); max-height: min(850px,93vh); overflow: auto; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-lg); transform: translateY(15px) scale(.985); transition: transform 200ms ease; }
+    .modal.active .modal-dialog { transform: translateY(0) scale(1); }
+    .modal-header { position: sticky; z-index: 4; top: 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 27px 30px 20px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    html[data-theme="dark"] .modal-header { background: rgba(20,22,27,.95); }
+    .modal-kicker { color: var(--text-tertiary); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .modal-title { margin-top: 5px; font-family: "DM Sans", sans-serif; font-size: 34px; line-height: 1; letter-spacing: -.055em; }
+    .modal-close { width: 39px; height: 39px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 10px; color: var(--text-secondary); }
+    .modal-close:hover { background: var(--hover); color: var(--text); }
+    .modal-body { padding: 29px 30px 34px; }
+    .modal-summary { max-width: 790px; color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+    .modal-module-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 22px; }
+    .modal-module-chip { padding: 11px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-soft); }
+    .modal-module-chip strong { display: block; font-size: 11px; }
+    .modal-module-chip span { display: block; margin-top: 3px; color: var(--text-tertiary); font-size: 9px; line-height: 1.5; }
+    .modal-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; margin-top: 28px; }
+    .modal-section { padding: 20px; border: 1px solid var(--border); border-radius: 15px; background: var(--bg-soft); }
+    .modal-section-wide { grid-column: 1 / -1; }
+    .modal-section h4 { color: var(--text-tertiary); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .modal-section p, .modal-section li { color: var(--text-secondary); font-size: 12px; line-height: 1.75; }
+    .modal-section p { margin-top: 9px; }
+    .modal-section ul { padding-left: 17px; margin-top: 9px; }
+    .modal-section li + li { margin-top: 5px; }
+    .modal-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+    .modal-tech span { padding: 6px 8px; border: 1px solid var(--border); border-radius: 7px; background: var(--surface); color: var(--text-secondary); font-size: 9px; font-weight: 750; }
+    .modal-feature-list { display: grid; gap: 12px; margin-top: 12px; }
+    .modal-feature { padding: 13px; border: 1px solid var(--border); border-radius: 11px; background: var(--surface); }
+    .modal-feature strong { display: block; font-size: 11px; }
+    .modal-feature span { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 10px; line-height: 1.6; }
+    .modal-footer { display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 30px 30px; }
+
+    [data-reveal] { opacity: 0; transform: translateY(15px); transition: opacity var(--ease-slow), transform var(--ease-slow); }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    :focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+    @media (max-width: 960px) {
+      .desktop-nav { display: none; }
+      .menu-button { display: grid; }
+      .founder-layout { grid-template-columns: 1fr; gap: 42px; }
+      .founder-sidebar { position: static; }
+      .capabilities-grid { grid-template-columns: repeat(2,1fr); }
+      .platform-banner-inner { grid-template-columns: 1fr; }
+      .platform-grid { border-left: 0; border-top: 1px solid var(--border); }
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-section-wide { grid-column: auto; }
+      .modal-module-strip { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      .section { padding: 80px 0; }
+      .section-small { padding: 70px 0; }
+      .hero { padding: 145px 0 80px; }
+      .hero-title { font-size: clamp(45px,14vw,71px); }
+      .hero-copy { font-size: 14px; }
+      .hero-metrics { grid-template-columns: 1fr; margin-top: 48px; }
+      .metric { padding: 19px 20px; }
+      .metric + .metric { border-left: 0; border-top: 1px solid var(--border); }
+      .founder-points { grid-template-columns: 1fr; }
+      .capabilities-grid { grid-template-columns: 1fr; }
+      .platform-copy { padding: 27px 23px; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .platform-module { border-right: 0 !important; border-bottom: 1px solid var(--border) !important; }
+      .platform-module:last-child { border-bottom: 0 !important; }
+      .project-row { grid-template-columns: 39px 1fr auto; gap: 12px; padding: 23px 0; }
+      .project-title { font-size: 20px; }
+      .project-description { font-size: 11px; }
+      .project-arrow { width: 36px; height: 36px; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 34px 23px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .modal { padding: 10px; }
+      .modal-dialog { max-height: 95vh; border-radius: 18px; }
+      .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+      .modal-footer { padding-left: 20px; padding-right: 20px; }
+      .modal-title { font-size: 28px; }
+      .modal-module-strip { grid-template-columns: 1fr; }
+      .modal-footer { flex-wrap: wrap; justify-content: stretch; }
+      .modal-footer .button { flex: 1 1 180px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+<a class="brand" href="/" aria-label="Devtechsoft home">
+    <img
+        class="brand-logo"
+        src="logo.png"
+        alt="Devtechsoft logo"
+        width="34"
+        height="34"
+    >
+    <span class="brand-name">Devtechsoft</span>
+</a>  
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="nav-link" href="#about">Founder</a>
+        <a class="nav-link" href="#capabilities">Capabilities</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#approach">Approach</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <span id="themeIcon" aria-hidden="true"></span>
+        </button>
+        <button class="menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <nav class="mobile-nav-links" aria-label="Mobile navigation">
+      <a href="#about">Founder</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#projects">Projects</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-kicker" data-reveal>
+          <span class="hero-status" aria-hidden="true"></span>
+          Founder-led technology studio
+        </div>
+
+        <h1 class="hero-title" data-reveal>
+          Building software for <span class="hero-title-muted">the next generation of work.</span>
+        </h1>
+
+        <p class="hero-copy" data-reveal>
+          Devtechsoft builds AI-powered applications, enterprise software, intelligent automation systems and digital products that connect modern technology with practical business workflows.
+        </p>
+
+        <div class="hero-actions" data-reveal>
+          <a class="button button-primary" href="#projects">
+            Explore projects
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </a>
+          <a class="button" href="#contact">Start a conversation</a>
+        </div>
+
+        <div class="hero-metrics" data-reveal>
+          <div class="metric"><strong>AI-first</strong><span>Product engineering</span></div>
+          <div class="metric"><strong>8 modules</strong><span>PromptImageLab Enterprise</span></div>
+          <div class="metric"><strong>35+ tools</strong><span>AI engineering utilities</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor-target" id="about">
+      <div class="container">
+        <div class="founder-layout">
+          <aside class="founder-sidebar" data-reveal>
+            <div class="founder-card">
+              <div class="founder-avatar">DS</div>
+              <div class="founder-name">Dhanush S</div>
+              <div class="founder-role">Founder · Developer · AI Product Builder</div>
+              <div class="founder-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+                India
+              </div>
+            </div>
+          </aside>
+
+          <div class="founder-content" data-reveal>
+            <span class="eyebrow">Founder</span>
+            <h2>Turning practical problems into software products.</h2>
+            <p class="founder-description">
+              Devtechsoft is a founder-led technology initiative focused on creating practical software products across artificial intelligence, business automation, enterprise workflows, e-commerce, developer tooling and digital product systems.
+            </p>
+            <p class="founder-description">
+              The approach combines product thinking with hands-on engineering — from interfaces and application logic to AI integrations, APIs, data workflows, security controls and deployment-oriented systems.
+            </p>
+
+            <div class="founder-points">
+              <article class="founder-point"><h3>Product thinking</h3><p>Start with the user workflow, business requirement and desired outcome before selecting technology.</p></article>
+              <article class="founder-point"><h3>AI integration</h3><p>Integrate generative AI, agents, RAG and intelligent workflows directly into useful applications.</p></article>
+              <article class="founder-point"><h3>Enterprise automation</h3><p>Connect systems, APIs, data and AI to improve repetitive operational workflows with human governance.</p></article>
+              <article class="founder-point"><h3>Full-stack execution</h3><p>Work across frontend, backend, databases, APIs, AI services, cloud platforms and deployment.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-small anchor-target" id="capabilities">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Capabilities</span>
+        <div class="section-heading" data-reveal>
+          <h2>Intelligence meets execution.</h2>
+          <p>A practical engineering foundation for AI products, enterprise automation, developer tooling and workflow-driven software systems.</p>
+        </div>
+
+        <div class="capabilities-grid">
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg></div>
+            <h3>Agentic AI</h3><p>AI agents, multi-model workflows, orchestration, tool use, prompt systems and controlled automation.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 8h10"></path><path d="M7 12h5"></path><path d="M7 16h7"></path></svg></div>
+            <h3>Software Engineering</h3><p>Web applications, APIs, full-stack systems, databases and maintainable product foundations.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M12 4v16"></path><path d="m7 7-3 5 3 5"></path><path d="m17 7 3 5-3 5"></path></svg></div>
+            <h3>Automation</h3><p>Connect software, APIs, data and AI models to automate structured business and operational workflows.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h2l2 11h10l2-8H7"></path><circle cx="10" cy="20" r="1.5"></circle><circle cx="17" cy="20" r="1.5"></circle></svg></div>
+            <h3>Digital Commerce</h3><p>Product catalogues, customer workflows, carts, orders, admin operations and responsive storefronts.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 9h8"></path><path d="M8 13h6"></path><path d="M8 17h4"></path></svg></div>
+            <h3>AI Developer Tools</h3><p>Token, context, cost, JSON, RAG, response comparison and practical engineering utilities.</p>
+          </article>
+          <article class="capability-card" data-reveal>
+            <div class="capability-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 7v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V7l-7-4Z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+            <h3>AI Security</h3><p>LLM security checks, prompt-injection detection, PII masking, secret detection and MCP security controls.</p>
+          </article>
+        </div>
+
+        <div class="platform-banner" data-reveal>
+          <div class="platform-banner-inner">
+            <div class="platform-copy">
+              <span class="eyebrow">Flagship platform</span>
+              <h3>PromptImageLab Enterprise</h3>
+              <p>
+                An AI engineering platform bringing agent development, enterprise operations reasoning, AI security, RAG engineering, developer utilities, MCP security, prompt systems and technical learning into one modular workspace.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Agent Studio</span><span class="tag">OpsPilot</span><span class="tag">Security Studio</span><span class="tag">RAG Lab</span>
+                <span class="tag">Developer Hub</span><span class="tag">MCP Security</span><span class="tag">Prompt Library</span><span class="tag">AI Engineering Docs</span>
+              </div>
+            </div>
+
+            <div class="platform-grid" aria-label="PromptImageLab Enterprise modules">
+              <article class="platform-module"><span class="platform-module-number">01</span><h4>Agent Studio</h4><p>Prompts, agent workflows, benchmarking, DAG orchestration and code export.</p></article>
+              <article class="platform-module"><span class="platform-module-number">02</span><h4>OpsPilot</h4><p>Enterprise AI operations and reasoning across incidents, observability and remediation.</p></article>
+              <article class="platform-module"><span class="platform-module-number">03</span><h4>Security Studio</h4><p>LLM security auditing, prompt-injection checks, PII and secret detection.</p></article>
+              <article class="platform-module"><span class="platform-module-number">04</span><h4>RAG Engineering</h4><p>Chunking, retrieval debugging, evaluation, citations and context optimization.</p></article>
+              <article class="platform-module"><span class="platform-module-number">05</span><h4>Developer Hub</h4><p>Token, cost, context, response comparison and AI engineering utilities.</p></article>
+              <article class="platform-module"><span class="platform-module-number">06</span><h4>MCP Security</h4><p>MCP discovery, permissions, scopes and security guidance.</p></article>
+              <article class="platform-module"><span class="platform-module-number">07</span><h4>Prompt Library</h4><p>Business and problem-oriented prompts with compatibility and Studio execution.</p></article>
+              <article class="platform-module"><span class="platform-module-number">08</span><h4>AI Engineering Docs</h4><p>Guides covering Agentic AI, RAG, MCP, security, architecture and implementation.</p></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor-target" id="projects">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Selected work</span>
+        <div class="section-heading" data-reveal>
+          <h2>Products built around real workflows.</h2>
+          <p>Select a project to view the problem, solution, capabilities, architecture, technology and product value.</p>
+        </div>
+
+        <div class="projects-container">
+          <article class="project-row is-featured" data-project="promptimagelab" data-reveal tabindex="0" role="button" aria-label="Open PromptImageLab Enterprise details">
+            <div class="project-index">01</div>
+            <div>
+              <h3 class="project-title">PromptImageLab Enterprise</h3>
+              <p class="project-description">AI SaaS platform for agent development, enterprise operations reasoning, AI security, RAG engineering, developer tools, MCP security, prompt systems and AI engineering learning.</p>
+              <div class="project-tags"><span class="tag">AI SaaS</span><span class="tag">Agentic AI</span><span class="tag">Enterprise</span><span class="tag">8 modules</span></div>
+            </div>
+            <div class="project-arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+          </article>
+
+          <article class="project-row" data-project="wealth-wellness" data-reveal tabindex="0" role="button" aria-label="Open Wealth and Wellness Platform details">
+            <div class="project-index">02</div>
+            <div>
+              <h3 class="project-title">Wealth &amp; Wellness Platform</h3>
+              <p class="project-description">Digital business platform designed around wellness-oriented operations, referral workflows, user records and structured business processes.</p>
+              <div class="project-tags"><span class="tag">Business Platform</span><span class="tag">Operations</span><span class="tag">Automation</span></div>
+            </div>
+            <div class="project-arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+          </article>
+
+          <article class="project-row" data-project="ecommerce" data-reveal tabindex="0" role="button" aria-label="Open E-commerce Platform details">
+            <div class="project-index">03</div>
+            <div>
+              <h3 class="project-title">E-commerce Platform</h3>
+              <p class="project-description">Full-stack commerce website using PHP, HTML, CSS and JavaScript for product discovery, shopping cart, customer workflows and order management.</p>
+              <div class="project-tags"><span class="tag">E-commerce</span><span class="tag">PHP</span><span class="tag">JavaScript</span></div>
+            </div>
+            <div class="project-arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+          </article>
+
+          <article class="project-row" data-project="referral" data-reveal tabindex="0" role="button" aria-label="Open Referral Management Application details">
+            <div class="project-index">04</div>
+            <div>
+              <h3 class="project-title">Referral Management Application</h3>
+              <p class="project-description">Windows-based business application for managing referral information, users, business records and AI-assisted workflow opportunities.</p>
+              <div class="project-tags"><span class="tag">Windows</span><span class="tag">Business Software</span><span class="tag">AI Integration</span></div>
+            </div>
+            <div class="project-arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+          </article>
+
+          <article class="project-row" data-project="blog-agent" data-reveal tabindex="0" role="button" aria-label="Open AI Blog Generator Agent details">
+            <div class="project-index">05</div>
+            <div>
+              <h3 class="project-title">AI Blog Generator Agent</h3>
+              <p class="project-description">Agent-oriented content workflow that turns a topic or structured brief into a draft-ready article through automated generation stages and human review.</p>
+              <div class="project-tags"><span class="tag">AI Agent</span><span class="tag">GenAI</span><span class="tag">Automation</span></div>
+            </div>
+            <div class="project-arrow"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-small anchor-target" id="approach">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Approach</span>
+        <div class="section-heading" data-reveal>
+          <h2>Simple systems. Clear outcomes.</h2>
+          <p>Technology is selected based on the workflow it needs to improve — not simply because it is new.</p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card" data-reveal>
+            <div class="approach-number">01</div>
+            <h3>Understand the workflow</h3>
+            <p>Start with the users, business process, constraints and operational bottlenecks.</p>
+            <div class="approach-items">
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>Workflow mapping</div>
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>Requirement prioritization</div>
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>Architecture selection</div>
+            </div>
+          </article>
+
+          <article class="approach-card" data-reveal>
+            <div class="approach-number">02</div>
+            <h3>Engineer for adoption</h3>
+            <p>Build interfaces and systems that are understandable, maintainable and practical for everyday use.</p>
+            <div class="approach-items">
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>Clear interfaces</div>
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>API-driven integrations</div>
+              <div class="approach-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>Human-controlled AI</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-small">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Technology</span>
+        <div class="section-heading" data-reveal>
+          <h2>A modern engineering toolbox.</h2>
+          <p>The stack evolves according to the product, architecture and business requirement.</p>
+        </div>
+        <div class="technology-stack" data-reveal>
+          <span class="technology-pill">Python</span><span class="technology-pill">PHP</span><span class="technology-pill">JavaScript</span><span class="technology-pill">HTML5</span><span class="technology-pill">CSS3</span><span class="technology-pill">React</span><span class="technology-pill">Node.js</span><span class="technology-pill">SQL</span><span class="technology-pill">MySQL</span><span class="technology-pill">REST APIs</span><span class="technology-pill">Generative AI</span><span class="technology-pill">AI Agents</span><span class="technology-pill">RAG</span><span class="technology-pill">MCP</span><span class="technology-pill">LangChain</span><span class="technology-pill">Streamlit</span><span class="technology-pill">Azure</span><span class="technology-pill">Databricks</span><span class="technology-pill">ServiceNow</span><span class="technology-pill">Datadog</span><span class="technology-pill">Splunk</span><span class="technology-pill">Cloudflare</span><span class="technology-pill">GitHub</span><span class="technology-pill">Jira</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor-target" id="contact">
+      <div class="container">
+        <div class="contact-card" data-reveal>
+          <div class="contact-decoration-1" aria-hidden="true"></div>
+          <div class="contact-decoration-2" aria-hidden="true"></div>
+          <div class="contact-content">
+            <span class="eyebrow">Contact</span>
+            <h2>Have a problem worth building for?</h2>
+            <p>Devtechsoft focuses on AI applications, enterprise software, AI security, RAG systems, workflow automation, e-commerce platforms and digital product development.</p>
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:hello@Devtechsoft.com">
+                Email Devtechsoft
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+              </a>
+              <a class="button" href="https://promptimagelab.com" target="_blank" rel="noopener noreferrer">
+                Visit PromptImageLab
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h5v5"></path><path d="M10 14 19 5"></path><path d="M19 13v6H5V5h6"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">© <span id="currentYear"></span> Devtechsoft. All rights reserved.</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a class="footer-link" href="#about">Founder</a>
+        <a class="footer-link" href="#capabilities">Capabilities</a>
+        <a class="footer-link" href="#projects">Projects</a>
+        <a class="footer-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSummary">
+    <div class="modal-dialog" role="document">
+      <div class="modal-header">
+        <div>
+          <div class="modal-kicker" id="modalKicker">PROJECT</div>
+          <h2 class="modal-title" id="modalTitle">Project</h2>
+        </div>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close project details">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6 6 18"></path></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-summary" id="modalSummary"></p>
+        <div class="modal-module-strip" id="modalModules" hidden></div>
+
+        <div class="modal-grid">
+          <section class="modal-section">
+            <h4>Problem / opportunity</h4>
+            <p id="modalProblem"></p>
+          </section>
+          <section class="modal-section">
+            <h4>Solution direction</h4>
+            <p id="modalSolution"></p>
+          </section>
+          <section class="modal-section modal-section-wide" id="modalOpsSection" hidden>
+            <h4>OpsPilot — Enterprise AI Operations &amp; Reasoning</h4>
+            <div class="modal-feature-list" id="modalOpsFeatures"></div>
+          </section>
+          <section class="modal-section">
+            <h4>Key capabilities</h4>
+            <ul id="modalCapabilities"></ul>
+          </section>
+          <section class="modal-section">
+            <h4>Architecture</h4>
+            <p id="modalArchitecture"></p>
+          </section>
+          <section class="modal-section">
+            <h4>Technology</h4>
+            <div class="modal-tech" id="modalStack"></div>
+          </section>
+          <section class="modal-section">
+            <h4>Product value</h4>
+            <p id="modalValue"></p>
+          </section>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a class="button button-primary" id="modalVisit" href="#" target="_blank" rel="noopener noreferrer" hidden>Open product</a>
+        <button class="button" id="modalDone" type="button">Close details</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    /* =========================================================
+       PROJECT DATABASE
+       ========================================================= */
+
+    const PROJECTS = {
+      promptimagelab: {
+        kicker: "01 · AI SAAS PLATFORM",
+        title: "PromptImageLab Enterprise",
+        summary: "An AI engineering SaaS platform bringing together agent development, enterprise AI operations, AI security, RAG engineering, developer utilities, MCP security, prompt systems and technical learning.",
+        problem: "AI teams often work across disconnected prompt tools, agent builders, observability systems, security checks, retrieval experiments, developer utilities and technical documentation. PromptImageLab is designed to bring these workflows into one modular engineering platform.",
+        solution: "Build a modular AI workspace where teams can design agents, investigate operational incidents, evaluate RAG pipelines, audit AI security, manage MCP integrations, use developer utilities, execute reusable prompts and learn implementation patterns from one platform.",
+        capabilities: [
+          "Multi-model AI workspace",
+          "Agent workflow design and orchestration",
+          "Enterprise incident intelligence and operational reasoning",
+          "Datadog / Splunk observability correlation",
+          "Governed remediation and ServiceNow automation",
+          "LLM security auditing and prompt-injection detection",
+          "RAG engineering and retrieval evaluation",
+          "AI developer utilities and cost/context tooling",
+          "MCP server discovery and permission auditing",
+          "Problem-oriented prompt library",
+          "AI engineering learning and implementation documentation"
+        ],
+        architecture: "Modular SaaS architecture with independently extensible product modules, shared identity and governance concepts, model/API integrations, retrieval and data services, audit-ready workflows, and integration points for enterprise systems and developer tooling.",
+        stack: ["Python", "JavaScript", "React", "LLMs", "Generative AI", "RAG", "MCP", "LangChain", "REST APIs", "Azure", "Datadog", "Splunk", "ServiceNow", "Cloudflare", "SQL"],
+        value: "Creates a unified engineering surface for building, evaluating, securing and operationalizing AI systems instead of relying on a collection of disconnected utilities.",
+        url: "https://promptimagelab.com",
+        modules: [
+          ["01", "Agent Studio", "Prompts, agent workflows, benchmarking, DAG orchestration and code export."],
+          ["02", "OpsPilot", "Enterprise AI operations and reasoning across incidents, observability, remediation and resolution memory."],
+          ["03", "Security Studio", "OWASP-oriented LLM security auditing, prompt-injection detection, PII masking and secret detection."],
+          ["04", "RAG Engineering", "Chunking playgrounds, retrieval debugging, embeddings evaluation, citation checking and context optimization."],
+          ["05", "Developer Hub", "Token counting, API cost calculation, context planning, response comparison, JSON tools and AI utilities."],
+          ["06", "MCP Security & Directory", "MCP server discovery, permissions and scopes auditing, and security guidance."],
+          ["07", "Prompt Library", "Business and problem-oriented prompt templates with model compatibility and Studio execution."],
+          ["08", "AI Engineering Learning / Docs", "Technical guides covering Agentic AI, RAG, MCP, prompt engineering, security and architecture."]
+        ],
+        opsPilot: [
+          ["01 — Incident Intelligence", "ServiceNow incident ingestion, classification, summarization and prioritization."],
+          ["02 — Root-Cause Analysis", "Temporal reasoning across incident events to identify probable root causes."],
+          ["03 — Observability Correlation", "Correlates ServiceNow incidents with Datadog / Splunk logs, metrics and alerts."],
+          ["04 — Operational Reasoning", "Builds incident timelines and connects related events, services and changes."],
+          ["05 — AI Remediation", "Recommends governed remediation actions with approval workflows."],
+          ["06 — ServiceNow Automation", "AI-assisted incident updates, work notes, resolution and controlled writeback."],
+          ["07 — Resolution Memory", "Uses historical incidents, resolutions and operational patterns as reusable organizational context."],
+          ["08 — Engineering Context", "Connects relevant Jira, Git and deployment changes to incidents."],
+          ["09 — Governance & Audit", "RBAC, approvals, audit trails and controlled AI execution."]
+        ]
+      },
+
+      "wealth-wellness": {
+        kicker: "02 · BUSINESS PLATFORM",
+        title: "Wealth & Wellness Platform",
+        summary: "A digital business platform designed around wellness-oriented operations, referral workflows, user records and structured business processes.",
+        problem: "Member information, follow-ups, referrals and operational tasks can become fragmented across manual records and disconnected workflows.",
+        solution: "Centralize business-oriented workflows into a structured application where users, activities, records and referral-driven processes can be managed through a unified system.",
+        capabilities: ["Member-oriented workflows", "Business activity management", "Referral processes", "Centralized records", "Operational workflow support", "Extensible business modules"],
+        architecture: "Entity-based application architecture organized around users, records, workflow states, actions and future automation capabilities.",
+        stack: ["Web Application", "JavaScript", "Backend APIs", "Database", "Automation"],
+        value: "Creates a structured digital foundation for organizing business workflows and reducing repetitive administrative work."
+      },
+
+      ecommerce: {
+        kicker: "03 · E-COMMERCE PLATFORM",
+        title: "E-commerce Platform",
+        summary: "A full-stack e-commerce website developed with PHP, HTML, CSS and JavaScript for product discovery, customer interactions, shopping cart workflows and order management.",
+        problem: "Businesses need a reliable storefront where customers can browse products, add items to a cart and complete purchasing workflows while administrators manage catalog data.",
+        solution: "Develop an integrated e-commerce application with a responsive storefront, server-side PHP business logic and database-driven product and order workflows.",
+        capabilities: ["Product catalogue management", "Product browsing and discovery", "Product detail pages", "Shopping cart", "Customer account workflows", "Order creation and management", "Admin-oriented product management", "Responsive storefront"],
+        architecture: "PHP-based full-stack architecture using server-side application logic, database-backed product and order records, reusable HTML/CSS components and JavaScript for interactive client-side behaviour.",
+        stack: ["PHP", "HTML5", "CSS3", "JavaScript", "MySQL", "REST-style endpoints", "Responsive UI"],
+        value: "Provides businesses with a complete digital commerce foundation for presenting products online and managing the customer-to-order workflow through one application."
+      },
+
+      referral: {
+        kicker: "04 · WINDOWS APPLICATION",
+        title: "Referral Management Application",
+        summary: "A Windows-based application designed to manage referral information, user records and business workflows with opportunities for AI-assisted functionality.",
+        problem: "Referral-driven businesses can become dependent on spreadsheets, manual records and repetitive follow-up processes, making information difficult to organize and retrieve.",
+        solution: "Build a dedicated desktop application that centralizes referral records, users, business information and operational actions while providing a foundation for intelligent assistance.",
+        capabilities: ["Referral record management", "User information management", "Business records", "Desktop-first workflow", "Search and organization", "AI-assisted features", "Operational data management"],
+        architecture: "Desktop application architecture organized around structured records, business rules, workflow actions and integration points for AI capabilities and external services.",
+        stack: ["Windows", "Python", "JavaScript", "SQL", "AI APIs", "Business Logic"],
+        value: "Transforms a manual referral-oriented process into a more structured software workflow with room for automation and AI-assisted operations."
+      },
+
+      "blog-agent": {
+        kicker: "05 · AGENTIC AI",
+        title: "AI Blog Generator Agent",
+        summary: "An AI-powered content generation workflow designed to transform a topic or structured brief into a draft-ready article through automated generation stages.",
+        problem: "Consistent long-form content creation requires topic research, outlining, drafting, editing and formatting. Repeating these stages manually consumes significant time.",
+        solution: "Create an AI agent-oriented workflow that transforms structured inputs into organized content drafts while preserving a human review step before publication.",
+        capabilities: ["Topic processing", "Content ideation", "Outline generation", "Draft generation", "Prompt-driven workflows", "AI-assisted optimization", "Human review stage", "Publishing integration potential"],
+        architecture: "Agent-oriented content pipeline with structured prompts, model calls, workflow stages and optional integrations for research, retrieval, editing and publishing.",
+        stack: ["Python", "LLMs", "LangChain", "RAG", "APIs", "Automation"],
+        value: "Reduces repetitive content-production work and creates a reusable foundation for broader AI-assisted content operations."
+      }
+    };
+
+    /* =========================================================
+       DOM REFERENCES
+       ========================================================= */
+
+    const html = document.documentElement;
+    const siteHeader = document.getElementById("siteHeader");
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileNav = document.getElementById("mobileNav");
+    const projectModal = document.getElementById("projectModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalDone = document.getElementById("modalDone");
+    const modalKicker = document.getElementById("modalKicker");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSummary = document.getElementById("modalSummary");
+    const modalProblem = document.getElementById("modalProblem");
+    const modalSolution = document.getElementById("modalSolution");
+    const modalCapabilities = document.getElementById("modalCapabilities");
+    const modalArchitecture = document.getElementById("modalArchitecture");
+    const modalStack = document.getElementById("modalStack");
+    const modalValue = document.getElementById("modalValue");
+    const modalModules = document.getElementById("modalModules");
+    const modalOpsSection = document.getElementById("modalOpsSection");
+    const modalOpsFeatures = document.getElementById("modalOpsFeatures");
+    const modalVisit = document.getElementById("modalVisit");
+    const currentYear = document.getElementById("currentYear");
+
+    /* =========================================================
+       THEME — SINGLE SOURCE OF TRUTH
+       ========================================================= */
+
+    function getSystemTheme() {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        html.setAttribute("data-theme", "dark");
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+        themeToggle.setAttribute("title", "Switch to light mode");
+      } else {
+        html.removeAttribute("data-theme");
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+        themeToggle.setAttribute("title", "Switch to dark mode");
+      }
+      renderThemeIcon();
+    }
+
+    function renderThemeIcon() {
+      const isDark = html.getAttribute("data-theme") === "dark";
+      themeIcon.innerHTML = isDark
+        ? `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a6.5 6.5 0 0 0 11 11Z"></path></svg>`
+        : `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.42 1.42"></path><path d="m17.65 17.65 1.42 1.42"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.35 17.65-1.42 1.42"></path><path d="m19.07 4.93-1.42 1.42"></path></svg>`;
+    }
+
+    const storedTheme = localStorage.getItem("Devtechsoft-theme");
+    applyTheme(storedTheme === "dark" ? "dark" : storedTheme === "light" ? "light" : getSystemTheme());
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("Devtechsoft-theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    /* =========================================================
+       YEAR
+       ========================================================= */
+
+    currentYear.textContent = String(new Date().getFullYear());
+
+    /* =========================================================
+       HEADER / MOBILE NAV
+       ========================================================= */
+
+    function updateHeader() {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 8);
+    }
+
+    function setMobileNav(open) {
+      mobileNav.classList.toggle("open", open);
+      mobileNav.setAttribute("aria-hidden", String(!open));
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    }
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    menuToggle.addEventListener("click", () => {
+      setMobileNav(!mobileNav.classList.contains("open"));
+    });
+
+    document.querySelectorAll(".mobile-nav a").forEach((link) => {
+      link.addEventListener("click", () => setMobileNav(false));
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 960) setMobileNav(false);
+    });
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+
+    const revealElements = document.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.10, rootMargin: "0px 0px -30px 0px" });
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("revealed"));
+    }
+
+    /* =========================================================
+       SAFE TEXT / HTML HELPERS
+       ========================================================= */
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderList(items) {
+      return items.map((item) => `<li>${escapeHTML(item)}</li>`).join("");
+    }
+
+    function renderStack(items) {
+      return items.map((item) => `<span>${escapeHTML(item)}</span>`).join("");
+    }
+
+    function renderModules(modules) {
+      if (!Array.isArray(modules) || modules.length === 0) {
+        modalModules.hidden = true;
+        modalModules.innerHTML = "";
+        return;
+      }
+      modalModules.hidden = false;
+      modalModules.innerHTML = modules.map(([number, name, description]) => `
+        <div class="modal-module-chip">
+          <strong>${escapeHTML(name)}</strong>
+          <span>${escapeHTML(description)}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderOpsPilot(features) {
+      if (!Array.isArray(features) || features.length === 0) {
+        modalOpsSection.hidden = true;
+        modalOpsFeatures.innerHTML = "";
+        return;
+      }
+      modalOpsSection.hidden = false;
+      modalOpsFeatures.innerHTML = features.map(([label, description]) => `
+        <div class="modal-feature">
+          <strong>${escapeHTML(label)}</strong>
+          <span>${escapeHTML(description)}</span>
+        </div>
+      `).join("");
+    }
+
+    /* =========================================================
+       MODAL STATE
+       ========================================================= */
+
+    let lastFocusedElement = null;
+
+    function openProject(projectId) {
+      const project = PROJECTS[projectId];
+      if (!project) return;
+
+      lastFocusedElement = document.activeElement;
+
+      modalKicker.textContent = project.kicker;
+      modalTitle.textContent = project.title;
+      modalSummary.textContent = project.summary;
+      modalProblem.textContent = project.problem;
+      modalSolution.textContent = project.solution;
+      modalArchitecture.textContent = project.architecture;
+      modalValue.textContent = project.value;
+      modalCapabilities.innerHTML = renderList(project.capabilities || []);
+      modalStack.innerHTML = renderStack(project.stack || []);
+      renderModules(project.modules);
+      renderOpsPilot(project.opsPilot);
+
+      if (project.url) {
+        modalVisit.hidden = false;
+        modalVisit.href = project.url;
+      } else {
+        modalVisit.hidden = true;
+        modalVisit.removeAttribute("href");
+      }
+
+      projectModal.classList.add("active");
+      projectModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+
+      requestAnimationFrame(() => modalClose.focus());
+    }
+
+    function closeProject() {
+      projectModal.classList.remove("active");
+      projectModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    document.querySelectorAll(".project-row").forEach((projectCard) => {
+      const projectId = projectCard.dataset.project;
+      projectCard.addEventListener("click", () => openProject(projectId));
+      projectCard.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openProject(projectId);
+        }
+      });
+    });
+
+    modalClose.addEventListener("click", closeProject);
+    modalDone.addEventListener("click", closeProject);
+
+    projectModal.addEventListener("click", (event) => {
+      if (event.target === projectModal) closeProject();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && projectModal.classList.contains("active")) {
+        closeProject();
+        return;
+      }
+
+      if (event.key !== "Tab" || !projectModal.classList.contains("active")) return;
+
+      const focusable = [...projectModal.querySelectorAll("button, a[href], input, textarea, select, [tabindex]:not([tabindex='-1'])")]
+        .filter((element) => !element.hasAttribute("disabled") && element.offsetParent !== null);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    /* =========================================================
+       SMOOTH ANCHOR NAVIGATION
+       ========================================================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", targetId);
+      });
+    });
+  </script>
+</body>
+</html>
